@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSAFY Mate - 코드와 일상을 함께 나누는 공간</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <!-- FontAwesome for beautiful icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            deep: '#0B192C',     /* Main Deep Blue */
+                            primary: '#1E3E62',  /* Trust Navy */
+                            light: '#F1F6F9',    /* Clean Background */
+                            mint: '#10B981',     /* Point Color */
+                            softBlue: '#3B82F6'  /* Point Soft Blue */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #F1F6F9;
+        }
+        /* Custom smooth hover effects */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        /* Typing animation or console blinking */
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .console-cursor {
+            animation: blink 1s step-end infinite;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-brand-softBlue selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-brand-primary flex items-center justify-center text-white font-bold text-lg">S</div>
+                    <span class="font-bold text-lg tracking-tight text-brand-deep">SSAFY Mate</span>
+                </div>
+                
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#welcome" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">홈</a>
+                    <a href="#vision" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">백엔드 지향점</a>
+                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">나의 일상</a>
+                    <a href="#pet" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">반려동물</a>
+                    <a href="#strengths" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">나의 강점</a>
+                    <a href="#contact" class="px-4 py-2 text-sm font-semibold text-white bg-brand-primary rounded-full hover:bg-brand-deep transition-all duration-300 shadow-sm hover:shadow">연락하기 👋</a>
+                </div>
+
+                <!-- Personalization Mini Badge -->
+                <div class="flex items-center gap-2">
+                    <div class="bg-brand-light border border-slate-200 rounded-full px-3 py-1 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <input id="userNameInput" type="text" placeholder="이름을 알려주세요!" class="bg-transparent text-xs text-slate-700 focus:outline-none w-24 font-semibold" oninput="updateVisitorName(this.value)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Welcome Zone Section with Premium Radial Gradient -->
+    <section id="welcome" class="pt-32 pb-20 md:py-40 relative overflow-hidden flex items-center min-h-[90vh]" style="background: radial-gradient(circle, rgba(248, 250, 252, 0.95) 20%, rgba(203, 213, 225, 0.75) 100%);">
+        <!-- Decorative grid background -->
+        <div class="absolute inset-0 z-0 opacity-[0.03]" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 24px 24px;"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <!-- Sparkle Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 border border-slate-200/80 text-xs font-semibold text-brand-primary mb-6 shadow-sm">
+                <i class="fa-solid fa-sparkles text-amber-500"></i>
+                <span>함께 성장하는 싸피 러닝메이트의 공간</span>
+            </div>
+            
+            <!-- Main Personalized Catchphrase -->
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-deep leading-tight mb-8">
+                코드도 일상도 함께 나누고 싶은,<br>
+                싸피의 든든한 러닝메이트 <span id="welcomeName" class="text-brand-softBlue bg-gradient-to-r from-brand-primary to-brand-softBlue bg-clip-text text-transparent">동료</span>입니다.
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                싸피(SSAFY)라는 멋진 기회 속에서, 단순한 프로젝트 메이트를 넘어 매일의 사소한 고민과 소소한 기쁨을 나눌 수 있는 든든한 개발자 친구가 되고 싶습니다.
+            </p>
+            
+            <!-- Call to Actions -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#vision" class="w-full sm:w-auto px-6 py-3.5 bg-brand-primary text-white font-semibold rounded-xl hover:bg-brand-deep transition-all duration-300 shadow-md hover:shadow-xl flex items-center justify-center gap-2">
+                    <span>백엔드 지향점 보기</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-6 py-3.5 bg-white/90 border border-slate-200 text-slate-700 font-semibold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>소통 창구 확인하기</span>
+                    <i class="fa-solid fa-paper-plane text-brand-primary"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Backend Vision -->
+    <section id="vision" class="py-24 bg-brand-light border-y border-slate-200/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-deep">보이지 않는 곳에서 가치를 만드는 백엔드</h2>
+                <div class="w-12 h-1 bg-brand-primary mx-auto my-4 rounded-full"></div>
+                <p class="text-slate-600 text-sm md:text-base">안정적인 아키텍처와 원활한 데이터의 흐름을 고민하는 단단한 뿌리 같은 백엔드 개발자가 되고 싶습니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left: Professional core goals -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h3 class="text-xl font-bold text-brand-deep flex items-center gap-2">
+                        <i class="fa-solid fa-server text-brand-softBlue"></i>
+                        <span>제가 집중하는 가치들</span>
+                    </h3>
+                    
+                    <!-- Goal Item 1 -->
+                    <div class="flex gap-4 p-4 rounded-xl bg-white border border-slate-100 shadow-sm">
+                        <div class="text-brand-softBlue text-xl mt-1"><i class="fa-solid fa-gears"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm md:text-base">튼튼하고 유연한 아키텍처 설계</h4>
+                            <p class="text-slate-500 text-xs md:text-sm mt-1">사용하기 편리하고 변화에 유연하게 대응할 수 있는 API와 DB 설계를 끊임없이 공부합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Goal Item 2 -->
+                    <div class="flex gap-4 p-4 rounded-xl bg-white border border-slate-100 shadow-sm">
+                        <div class="text-emerald-500 text-xl mt-1"><i class="fa-solid fa-gauge-high"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm md:text-base">사용자 성능 및 효율의 극대화</h4>
+                            <p class="text-slate-500 text-xs md:text-sm mt-1">대용량 처리와 병목 없는 빠른 응답 속도를 내는 효율적인 쿼리와 로직을 구현하고자 합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Goal Item 3 -->
+                    <div class="flex gap-4 p-4 rounded-xl bg-white border border-slate-100 shadow-sm">
+                        <div class="text-purple-500 text-xl mt-1"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm md:text-base">예외 상황을 꼼꼼히 챙기는 안정성</h4>
+                            <p class="text-slate-500 text-xs md:text-sm mt-1">모든 에러 케이스와 예외 처리를 디테일하게 처리하여 24시간 중단 없는 신뢰성 있는 서버를 지향합니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Backend Terminal Console -->
+                <div class="lg:col-span-7">
+                    <div class="bg-slate-900 text-slate-200 rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+                        <!-- Console Header -->
+                        <div class="bg-slate-950 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+                            <div class="flex gap-1.5">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            </div>
+                            <span class="text-xs text-slate-500 font-mono select-none">ssafy-api-terminal.sh</span>
+                            <span class="w-4 h-4"></span>
+                        </div>
+                        <!-- Console Body -->
+                        <div class="p-6 font-mono text-xs md:text-sm min-h-[220px] bg-slate-900/95 flex flex-col justify-between">
+                            <div id="consoleOutput" class="space-y-2 whitespace-pre-wrap leading-relaxed">
+<!-- Default screen state -->
+<span class="text-slate-500"># Welcome to Backend Demo. Click the button below to test API pipeline.</span>
+<span class="text-slate-300">visitor_db_state: connected <span class="text-emerald-500 font-semibold">[OK]</span></span>
+<span class="text-slate-300">api_status: <span id="apiStatusText" class="text-slate-400">WAITING_FOR_REQUEST</span></span>
+<span class="text-brand-softBlue">waiting_for_trigger_event...<span class="console-cursor font-bold">_</span></span></div>
+                            
+                            <!-- Trigger Button -->
+                            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-500 animate-pulse" id="consoleIndicator"></span>
+                                    <span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider" id="consoleStatusLabel">System Ready</span>
+                                </div>
+                                <button onclick="triggerBackendServer()" class="px-4 py-2 bg-brand-primary hover:bg-brand-softBlue text-white rounded-lg text-xs font-bold transition-all flex items-center gap-2 border border-brand-softBlue/20 shadow-lg">
+                                    <i class="fa-solid fa-play text-[10px]"></i>
+                                    <span>API 요청 전송 테스트</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: About Me (Hobbies & Daily Life) -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-deep">하루의 반은 코드와, 반은 취미와 함께!</h2>
+                <div class="w-12 h-1 bg-brand-primary mx-auto my-4 rounded-full"></div>
+                <p class="text-slate-600 text-sm md:text-base">제가 좋아하는 소중한 일상 속 즐거움들을 공유합니다. 공통 관심사가 있으시다면 언제든 반갑게 아는 척해 주세요!</p>
+            </div>
+
+            <!-- Grid Layout of 3 Major Hobbies -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Baseball Hobby Card -->
+                <div class="bg-brand-light rounded-2xl p-6 border border-slate-100 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-baseball-bat-ball"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-deep mb-3">최강삼성! "야구"</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            푸른 피가 흐르는 열렬한 삼성 라이온즈 팬입니다! 매 경기 응원하며, 기회가 되면 라이온즈 파크 직관을 다니는 것이 인생의 가장 큰 행복이자 힐링입니다.
+                        </p>
+                    </div>
+                    <!-- Interaction: Click to cheer -->
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex items-center justify-between">
+                        <span class="text-xs text-slate-500">라이온즈 응원수</span>
+                        <button onclick="cheerBaseball()" class="px-3 py-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-all flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-fire"></i> <span id="baseballCheerCount">12</span>번 외침
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Game Hobby Card -->
+                <div class="bg-brand-light rounded-2xl p-6 border border-slate-100 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-deep mb-3">전략과 소통의 공간 "게임"</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            친구들과 디스코드로 시시콜콜한 수다를 떨며 즐기는 멀티플레이어 협동 게임을 선호합니다. 싸피 동기분들과의 친선 매치나 파티 모집은 언제나 환영입니다!
+                        </p>
+                    </div>
+                    <!-- Interaction: Dynamic game request -->
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex items-center justify-between">
+                        <span class="text-xs text-slate-500">듀오/파티 참여 의향</span>
+                        <button onclick="requestDuo()" class="px-3 py-1.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold transition-all flex items-center gap-1 shadow-sm">
+                            <span>🎮 같이 해요!</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Photography Hobby Card -->
+                <div class="bg-brand-light rounded-2xl p-6 border border-slate-100 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-deep mb-3">기억을 기록하는 "사진 촬영"</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            아름다운 네 계절의 변화, 여행지에서 만나는 낯선 풍경, 그리고 평범한 주말의 한 조각을 렌즈에 담는 것을 좋아합니다.
+                        </p>
+                    </div>
+                    <!-- Interaction: Open Gallery Slide modal/trigger -->
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex items-center justify-between">
+                        <span class="text-xs text-slate-500">인생 스냅샷 갤러리</span>
+                        <button onclick="toggleGallery()" class="px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all flex items-center gap-1 shadow-sm">
+                            <span>📷 갤러리 보기</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom CSS-based Popup Photo Gallery for interactive engagement -->
+    <div id="galleryModal" class="hidden fixed inset-0 z-50 overflow-hidden bg-brand-deep/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative">
+            <button onclick="toggleGallery()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-xl font-bold text-brand-deep mb-4">📸 제가 남긴 일상의 기억들</h3>
+            
+            <div class="relative rounded-xl overflow-hidden aspect-video bg-slate-100 mb-4">
+                <img id="galleryImg" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Camera snap" class="w-full h-full object-cover transition-all duration-500">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
+                    <p id="galleryDesc" class="font-medium text-sm">소중한 시간과 추억을 담아내는 카메라 라이프</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <button onclick="prevPhoto()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-semibold text-slate-700 transition-all flex items-center gap-1">
+                    <i class="fa-solid fa-chevron-left"></i> 이전
+                </button>
+                <div class="flex gap-1.5" id="galleryIndicators">
+                    <!-- Dots will be loaded dynamically via JS -->
+                </div>
+                <button onclick="nextPhoto()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-semibold text-slate-700 transition-all flex items-center gap-1">
+                    다음 <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section: Special Guest (Pet Introduction) -->
+    <section id="pet" class="py-24 bg-brand-light relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-xl flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+                <!-- Background decorative bubble -->
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-softBlue/5 rounded-full blur-2xl"></div>
+                
+                <!-- Real Pet Photo Frame -->
+                <div class="w-full md:w-1/2 flex flex-col items-center justify-center text-center">
+                    <div id="petPhotoContainer" class="relative w-60 h-60 bg-white border-8 border-white rounded-2xl flex items-center justify-center overflow-hidden shadow-lg group cursor-pointer transform hover:scale-105 hover:rotate-1 transition-all duration-300">
+                        
+                        <!-- 💡 [꿀팁] 실제 반려동물 사진 파일이 생기면 아래 src 속성의 Unsplash 링크를 파일 경로로 변경해 주세요! -->
+                        <img id="petImg" src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=600&q=80" alt="반려동물 단비 실물 사진" class="w-full h-full object-cover transition-transform duration-500" onerror="this.src='https://placehold.co/600x600/1E3E62/ffffff?text=My+Cute+Danbi'">
+                        
+                        <!-- Mini Heart Bubble triggered by interaction -->
+                        <div id="heartBubble" class="absolute top-4 right-4 scale-0 opacity-0 transition-all duration-300 transform pointer-events-none text-red-500 text-2xl">
+                            <i class="fa-solid fa-heart animate-bounce"></i>
+                        </div>
+
+                        <!-- Cute Polaroid-style Label Overlay -->
+                        <div class="absolute bottom-3 right-3 bg-brand-primary/95 text-white px-2.5 py-1 rounded-lg text-[10px] font-bold tracking-wider shadow-sm">
+                            실물 단비 📸
+                        </div>
+                    </div>
+                    
+                    <p class="text-xs text-slate-400 mt-4"><i class="fa-solid fa-heart text-red-400 animate-pulse"></i> 사진을 콕 클릭해서 예뻐해 주세요!</p>
+                </div>
+
+                <!-- Text Description & Profile Section -->
+                <div class="w-full md:w-1/2 flex flex-col justify-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-xs font-bold text-amber-800 w-fit mb-4">
+                        <span>🐾 Special Guest</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-deep mb-4">최고의 해피 바이러스, "단비"</h3>
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed mb-6">
+                        퇴근(하교)하는 발소리만 들려도 문앞에서 반갑게 마중 나와 꼬리를 치는 애교 만점 반려견입니다. 새하얀 털이 매력적인 스피츠 여자아이에요. 개발하다가 코드가 꼬여서 답답할 때, 단비의 맑은 눈망울과 솜사탕처럼 폭신한 털을 안고 나면 쌓였던 스트레스가 눈 녹듯 사라지며 막혔던 로직이 신기하게 풀리곤 합니다.
+                    </p>
+                    
+                    <!-- Dog Profile Info -->
+                    <div class="grid grid-cols-2 gap-4 bg-brand-light p-4 rounded-2xl border border-slate-100">
+                        <div>
+                            <span class="block text-xs text-slate-400">매력 포인트</span>
+                            <span class="text-sm font-semibold text-brand-deep">폭신폭신한 새하얀 털</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-400">나이 (성별)</span>
+                            <span class="text-sm font-semibold text-brand-deep">3살 (여아)</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Dynamic Interative Speech Bubble -->
+                    <div class="mt-6 flex gap-3 items-center">
+                        <div class="bg-brand-primary text-white text-xs px-4 py-2 rounded-xl rounded-tl-none relative shadow-sm max-w-xs">
+                            <p id="petTalk">단비: "언니/오빠, 오늘 하루도 싸피 화이팅이개! 멍!"</p>
+                        </div>
+                        <button onclick="feedTreat()" class="p-2 bg-amber-100 hover:bg-amber-200 text-amber-700 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-colors">
+                            <span>🦴 간식 주기</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: My Strengths -->
+    <section id="strengths" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-deep">러닝메이트로서 저의 강점 3가지</h2>
+                <div class="w-12 h-1 bg-brand-primary mx-auto my-4 rounded-full"></div>
+                <p class="text-slate-600 text-sm md:text-base">어려운 기술을 빠르게 배우는 것만큼이나 중요한, 함께 일하고 싶어지는 사람의 가치들을 생각합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Strength Card 1 -->
+                <div class="p-8 rounded-2xl border border-slate-100 bg-brand-light/50 flex flex-col justify-between hover:border-brand-softBlue/30 transition-all duration-300">
+                    <div>
+                        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6">01</div>
+                        <h3 class="text-lg font-bold text-brand-deep mb-3">포기하지 않는 든든한 끈기</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            에러 코드가 아무리 끝없이 이어져도, 결국에는 원인을 디버깅하고야 마는 깊은 끈기를 가졌습니다. 동료들의 밤샘 코딩에서도 마지막까지 곁을 지키며 활력을 채워드릴 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Strength Card 2 -->
+                <div class="p-8 rounded-2xl border border-slate-100 bg-brand-light/50 flex flex-col justify-between hover:border-brand-softBlue/30 transition-all duration-300">
+                    <div>
+                        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6">02</div>
+                        <h3 class="text-lg font-bold text-brand-deep mb-3">경계를 허무는 열린 소통</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            팀에 소외되는 의견이 없도록 조율하며, 갈등 상황 속에서도 따뜻한 미소와 유연한 언어로 팀 분위기를 부드럽게 이끌어 나갑니다. 함께 토론하는 것을 소중히 생각합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Strength Card 3 -->
+                <div class="p-8 rounded-2xl border border-slate-100 bg-brand-light/50 flex flex-col justify-between hover:border-brand-softBlue/30 transition-all duration-300">
+                    <div>
+                        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6">03</div>
+                        <h3 class="text-lg font-bold text-brand-deep mb-3">배움을 아낌없이 공유하는 자세</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            직접 새로 습득한 지식이나 유용했던 개발 팁을 나만 아는 노하우로 묻어두지 않고, 블로그나 위키에 꼼꼼히 정리하여 다른 동료들이 막히지 않도록 선한 영향력을 펼칩니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Networking & Contact -->
+    <section id="contact" class="py-24 bg-gradient-to-b from-brand-light to-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div class="bg-brand-deep text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                <!-- Design accent circle -->
+                <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-brand-softBlue/20 rounded-full blur-3xl"></div>
+                
+                <div class="text-center max-w-2xl mx-auto mb-10 relative z-10">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-brand-softBlue bg-brand-softBlue/10 px-3 py-1.5 rounded-full">Let's Connect</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold mt-4 mb-4">
+                        👋 <span class="visitor-name">싸피 동료</span>님, 언제나 소통할 준비가 되어있어요!
+                    </h2>
+                    <p class="text-slate-300 text-sm md:text-base">
+                        프로젝트 협업 제안도 좋고, 사소한 일상 대화나 야구 수다도 언제나 환영입니다. 아래 연락처를 복사해서 편하게 똑똑 노크해 주세요!
+                    </p>
+                </div>
+
+                <!-- Action Button Panels -->
+                <div class="max-w-md mx-auto relative z-10">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <button onclick="copyToClipboard('dev-mate#1234', '디스코드 ID')" class="w-full py-4 px-6 bg-white/10 border border-white/20 text-sm text-white font-bold rounded-xl hover:bg-white/20 hover:border-white/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 shadow-lg">
+                            <i class="fa-brands fa-discord text-lg text-[#5865F2]"></i>
+                            <span>Discord ID 복사</span>
+                        </button>
+                        <button onclick="copyToClipboard('ssafymate@g.com', '이메일 주소')" class="w-full py-4 px-6 bg-white/10 border border-white/20 text-sm text-white font-bold rounded-xl hover:bg-white/20 hover:border-white/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 shadow-lg">
+                            <i class="fa-solid fa-envelope text-lg text-emerald-400"></i>
+                            <span>이메일 주소 복사</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom modern toast notification layout (since we don't use alerts) -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-300 ease-out">
+        <div class="bg-brand-deep border border-slate-800 text-white px-5 py-4 rounded-xl shadow-2xl flex items-center gap-3">
+            <div id="toastIconContainer" class="w-8 h-8 rounded-full bg-brand-softBlue flex items-center justify-center text-sm">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div>
+                <p id="toastTitle" class="text-xs font-bold text-slate-300">알림</p>
+                <p id="toastMessage" class="text-sm font-semibold">성공적으로 처리되었습니다!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-brand-deep text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 rounded-md bg-brand-softBlue flex items-center justify-center text-white font-bold text-xs">S</div>
+                    <span class="font-bold text-sm text-white tracking-wider uppercase">SSAFY Mate</span>
+                </div>
+                <p class="text-xs">
+                    이 웹사이트는 SSAFY 동기들의 밝은 성장과 유쾌한 아이스브레이킹을 소망하며 디자인되었습니다.
+                </p>
+            </div>
+            
+            <div class="border-t border-slate-900/50 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-slate-500">
+                    &copy; 2026 SSAFY Mate. All rights reserved. Designed with ❤️ for SSAFY.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors text-sm"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="hover:text-white transition-colors text-sm"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white transition-colors text-sm"><i class="fa-solid fa-blog"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interaction and custom scripting logic -->
+    <script>
+        // Name state
+        let visitorName = "동료";
+
+        // Gallery photo resources (Premium Unsplash fallbacks)
+        const photos = [
+            {
+                url: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
+                desc: "소중한 시간과 추억을 담아내는 카메라 라이프"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+                desc: "길모퉁이 골목길에서 발견한 우연하고 소소한 일상 스냅"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=800&q=80",
+                desc: "노을이 내리는 한강 다리 위에서 기록한 은은한 실루엣"
+            }
+        ];
+        let currentPhotoIndex = 0;
+
+        // Custom Pet speech texts to toggle randomly
+        const petQuotes = [
+            "단비: '언니/오빠, 오늘 하루도 싸피 화이팅이개! 멍!'",
+            "단비: '킁킁... 주인님 손가락에서 코딩 냄새가 난다개!'",
+            "단비: '내가 세상에서 제일 하얗고 귀엽다개!🐾'",
+            "단비: '단비 심심하개! 산책 데려가 달라개!🐾'",
+            "단비: '코딩하다 졸릴 땐 단비 솜사탕 볼을 만지개!🐶'"
+        ];
+
+        // Core dynamic visitor name update logic
+        function updateVisitorName(value) {
+            const trimmedValue = value.trim();
+            visitorName = trimmedValue ? trimmedValue : "동료";
+            
+            // Apply customized text values
+            const welcomeTarget = document.getElementById("welcomeName");
+            if (welcomeTarget) {
+                welcomeTarget.textContent = `${visitorName}님`;
+            }
+            
+            const visitorNameElements = document.querySelectorAll(".visitor-name");
+            visitorNameElements.forEach(el => {
+                el.textContent = visitorName;
+            });
+
+            // Update form welcome value if empty
+            const formNameField = document.getElementById("formName");
+            if (formNameField && !formNameField.value.trim()) {
+                formNameField.placeholder = `${visitorName}님의 이름`;
+            }
+        }
+
+        // Interactive Backend Console Demo
+        let isConsoleRunning = false;
+        function triggerBackendServer() {
+            if (isConsoleRunning) return;
+            isConsoleRunning = true;
+
+            const consoleOutput = document.getElementById("consoleOutput");
+            const indicator = document.getElementById("consoleIndicator");
+            const statusLabel = document.getElementById("consoleStatusLabel");
+            const apiStatusText = document.getElementById("apiStatusText");
+
+            if (!consoleOutput || !indicator || !statusLabel) return;
+
+            // Change to active status
+            indicator.className = "w-2.5 h-2.5 rounded-full bg-blue-500 animate-ping";
+            statusLabel.textContent = "Processing GET Request...";
+
+            consoleOutput.innerHTML = `
+<span class="text-blue-400">&gt; GET /api/v1/welcome-mate?visitor=${encodeURIComponent(visitorName)}</span>
+<span class="text-slate-500">Connecting to PostgreSQL database... [SUCCESS]</span>
+<span class="text-slate-500">Parsing response data payload...</span>
+<span class="text-brand-softBlue">waiting_for_response...</span>`;
+
+            setTimeout(() => {
+                // Success Response JSON mock
+                consoleOutput.innerHTML = `
+<span class="text-blue-400">&gt; GET /api/v1/welcome-mate?visitor=${encodeURIComponent(visitorName)}</span>
+<span class="text-emerald-400 font-bold">HTTP/1.1 200 OK (24ms)</span>
+<span class="text-slate-300">{
+  "status": "success",
+  "message": "환영합니다, ${visitorName}님!",
+  "role": "Backend Developer",
+  "tech_stack": ["Java", "Spring Boot", "MySQL", "Redis"],
+  "motto": "안정적인 데이터 처리와 신뢰성 있는 서버를 지향합니다."
+}</span>
+<span class="text-emerald-500">Pipeline Finished! ✅</span>`;
+
+                indicator.className = "w-2.5 h-2.5 rounded-full bg-emerald-500";
+                statusLabel.textContent = "Pipeline Active";
+                isConsoleRunning = false;
+
+                showToast("⚡ API 요청 성공 (200 OK)", "서버 터미널에서 JSON 원본 데이터를 확인해 보세요!");
+            }, 1200);
+        }
+
+        // Baseball cheering feature
+        let baseballCheers = 12;
+        function cheerBaseball() {
+            baseballCheers++;
+            const counter = document.getElementById("baseballCheerCount");
+            if (counter) {
+                counter.textContent = baseballCheers;
+            }
+            showToast("📣 최강삼성 화이팅!", "사자들의 시원한 승리를 함께 기원합니다!");
+        }
+
+        // Duo request mock logic
+        function requestDuo() {
+            showToast("🎮 멀티플레이 듀오 신청 완료!", `${visitorName}님과의 듀오 플레이를 준비할게요! 디스코드 ID도 남겨주세요.`);
+        }
+
+        // Photo gallery interaction
+        function toggleGallery() {
+            const modal = document.getElementById("galleryModal");
+            if (modal) {
+                modal.classList.toggle("hidden");
+                // Initialize dots indicator
+                if (!modal.classList.contains("hidden")) {
+                    renderGalleryIndicators();
+                }
+            }
+        }
+
+        function renderGalleryIndicators() {
+            const container = document.getElementById("galleryIndicators");
+            if (!container) return;
+            container.innerHTML = "";
+            photos.forEach((_, idx) => {
+                const indicator = document.createElement("span");
+                indicator.className = `w-2 h-2 rounded-full transition-colors ${idx === currentPhotoIndex ? 'bg-brand-primary' : 'bg-slate-200'}`;
+                container.appendChild(indicator);
+            });
+        }
+
+        function updateGalleryView() {
+            const img = document.getElementById("galleryImg");
+            const desc = document.getElementById("galleryDesc");
+            if (img && desc) {
+                img.src = photos[currentPhotoIndex].url;
+                desc.textContent = photos[currentPhotoIndex].desc;
+                renderGalleryIndicators();
+            }
+        }
+
+        function prevPhoto() {
+            currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+            updateGalleryView();
+        }
+
+        // Next photo
+        function nextPhoto() {
+            currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+            updateGalleryView();
+        }
+
+        // Pet photo click interaction
+        const petPhotoContainer = document.getElementById("petPhotoContainer");
+        if (petPhotoContainer) {
+            petPhotoContainer.addEventListener("click", () => {
+                // Heart pops out
+                const heart = document.getElementById("heartBubble");
+                if (heart) {
+                    heart.classList.remove("scale-0", "opacity-0", "-translate-y-4");
+                    // Force reflow
+                    void heart.offsetWidth;
+                    heart.classList.add("scale-100", "opacity-100", "-translate-y-4");
+                    setTimeout(() => {
+                        heart.classList.add("scale-0", "opacity-0");
+                        heart.classList.remove("scale-100", "opacity-100", "-translate-y-4");
+                    }, 1000);
+                }
+
+                // Random quote bubble update
+                const talk = document.getElementById("petTalk");
+                if (talk) {
+                    const randomQuote = petQuotes[Math.floor(Math.random() * petQuotes.length)];
+                    talk.textContent = randomQuote;
+                }
+            });
+        }
+
+        function feedTreat() {
+            // Heart animations or fun feedback
+            const talk = document.getElementById("petTalk");
+            if (talk) {
+                talk.textContent = "단비: '냠냠! 역시 언니/오빠가 주는 간식이 최고개!🐶✨'";
+            }
+            showToast("🦴 간식 주기 완료!", "단비가 꼬리를 힘차게 흔들며 행복해합니다.");
+        }
+
+        // Copy text helper
+        function copyToClipboard(text, description) {
+            // Create fallback input
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            showToast("📋 클립보드 복사 완료!", `${description}이(가) 복사되었습니다. 편하게 사용하세요.`);
+        }
+
+        // Toast visual feedback component (since browser alerts are not allowed)
+        let toastTimeout;
+        function showToast(title, message, type = "success") {
+            const toast = document.getElementById("toastNotification");
+            const tTitle = document.getElementById("toastTitle");
+            const tMessage = document.getElementById("toastMessage");
+            const tIcon = document.getElementById("toastIconContainer");
+
+            if (!toast || !tTitle || !tMessage || !tIcon) return;
+
+            // Clear previous timeout
+            clearTimeout(toastTimeout);
+
+            // Configure colors based on type
+            if (type === "error") {
+                tIcon.className = "w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-sm";
+                tIcon.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>';
+            } else {
+                tIcon.className = "w-8 h-8 rounded-full bg-brand-softBlue flex items-center justify-center text-white text-sm";
+                tIcon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            }
+
+            tTitle.textContent = title;
+            tMessage.textContent = message;
+
+            // Animate In
+            toast.classList.remove("translate-y-12", "opacity-0", "pointer-events-none");
+            toast.classList.add("translate-y-0", "opacity-100");
+
+            // Animate Out after delay
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove("translate-y-0", "opacity-100");
+                toast.classList.add("translate-y-12", "opacity-0", "pointer-events-none");
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
