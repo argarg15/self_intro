@@ -100,13 +100,13 @@
             
             <!-- Main Personalized Catchphrase -->
             <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-deep leading-tight mb-8">
-                코드도 일상도 함께 나누고 싶은,<br>
+                지식을 나누고 함께 성장하고 싶은,<br>
                 싸피의 러닝메이트 동료, <span class="text-brand-softBlue bg-gradient-to-r from-brand-primary to-brand-softBlue bg-clip-text text-transparent">박원석</span>입니다.
             </h1>
             
             <!-- Subtitle -->
             <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-                반갑습니다, <span id="welcomeName" class="font-bold text-brand-softBlue">동료님</span>! 싸피(SSAFY)라는 멋진 기회 속에서, 단순한 프로젝트 메이트를 넘어 매일의 사소한 고민과 소소한 기쁨을 나눌 수 있는 든든한 개발자 친구가 되고 싶습니다.
+                반갑습니다, <span id="welcomeName" class="font-bold text-brand-softBlue">동료님</span>! 싸피(SSAFY)라는 멋진 기회 속에서, 단순한 프로젝트 메이트를 넘어 서로 지식을 나누고 함께 성장하는 개발자 친구가 되고 싶습니다.
             </p>
             
             <!-- Call to Actions -->
@@ -574,7 +574,101 @@
     <script>
         // Name state
         let visitorName = "동료";
-// ... existing code ... -->
+        
+        // Photo gallery data
+        const photos = [
+            {
+                url: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
+                desc: "소중한 시간과 추억을 담아내는 카메라 라이프"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1472457897821-70d3819a0e24?auto=format&fit=crop&w=800&q=80",
+                desc: "직접 경기장에 가서 느끼는 야구 직관의 가슴 뛰는 전율"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=800&q=80",
+                desc: "집중하여 고난이도의 전략을 풀어낼 때 느끼는 게임 속 성취감"
+            }
+        ];
+        let currentPhotoIndex = 0;
+
+        // Visitor Name update
+        function updateVisitorName(name) {
+            const trimmed = name.trim();
+            visitorName = trimmed !== "" ? trimmed : "동료";
+            
+            // Update UI elements
+            const welcomeName = document.getElementById("welcomeName");
+            if (welcomeName) {
+                welcomeName.textContent = visitorName + "님";
+            }
+            
+            const visitorNameElements = document.querySelectorAll(".visitor-name");
+            visitorNameElements.forEach(el => {
+                el.textContent = visitorName;
+            });
+        }
+
+        let isConsoleRunning = false;
+        function triggerBackendServer() {
+            if (isConsoleRunning) {
+                showToast("⚠️ 처리 중", "이미 API 요청이 진행 중입니다. 잠시만 기다려주세요.", "error");
+                return;
+            }
+            isConsoleRunning = true;
+            
+            const consoleOutput = document.getElementById("consoleOutput");
+            const apiStatusText = document.getElementById("apiStatusText");
+            const consoleIndicator = document.getElementById("consoleIndicator");
+            const consoleStatusLabel = document.getElementById("consoleStatusLabel");
+            
+            if (!consoleOutput) return;
+            
+            // 1. Loading State
+            apiStatusText.innerHTML = '<span class="text-yellow-500 animate-pulse">SENDING_REQUEST...</span>';
+            if (consoleIndicator) consoleIndicator.className = "w-2.5 h-2.5 rounded-full bg-yellow-500 animate-ping";
+            if (consoleStatusLabel) consoleStatusLabel.textContent = "Processing...";
+            
+            consoleOutput.innerHTML = `
+<span class="text-slate-500"># Sending HTTP POST request to /api/v1/visitor/verify</span>
+<span class="text-brand-softBlue">>> Host: ssafy.mate.api</span>
+<span class="text-brand-softBlue">>> User-Agent: SsafyMateClient/2.0</span>
+<span class="text-brand-softBlue">>> Content-Type: application/json</span>
+<span class="text-brand-softBlue">>> Body: { "visitor": "${visitorName}" }</span>
+<span class="text-yellow-500 animate-pulse">>> Connecting to database... [PENDING]</span>
+            `;
+            
+            // 2. Success State after 1.2s delay
+            setTimeout(() => {
+                const randomLatency = Math.floor(Math.random() * 20 + 35); // 35ms ~ 55ms
+                
+                if (apiStatusText) apiStatusText.innerHTML = '<span class="text-emerald-500 font-bold">200 OK (SUCCESS)</span>';
+                if (consoleIndicator) consoleIndicator.className = "w-2.5 h-2.5 rounded-full bg-emerald-500";
+                if (consoleStatusLabel) consoleStatusLabel.textContent = "System Ready";
+                
+                consoleOutput.innerHTML = `
+<span class="text-slate-500"># API Response Received Successfully!</span>
+<span class="text-emerald-500 font-bold">HTTP/1.1 200 OK</span>
+<span class="text-slate-300">Content-Type: application/json;charset=UTF-8</span>
+<span class="text-slate-300">Response-Time: <span class="text-emerald-400 font-bold">${randomLatency}ms</span></span>
+
+<span class="text-amber-400 font-semibold">{</span>
+<span class="text-amber-400">  "status": 200,</span>
+<span class="text-amber-400">  "message": "Welcome ${visitorName} to SSAFY Mate!",</span>
+<span class="text-amber-400">  "data": {</span>
+<span class="text-amber-400">    "host": "Park Wonseok",</span>
+<span class="text-amber-400">    "role": "Backend Developer",</span>
+<span class="text-amber-400">    "active_db_nodes": 3,</span>
+<span class="text-amber-400">    "pipeline": "GitHub_Actions -> Docker -> Server"</span>
+<span class="text-amber-400">  }</span>
+<span class="text-amber-400">}</span>
+                `;
+                
+                showToast("🚀 API 요청 성공!", `데이터를 ${randomLatency}ms만에 성공적으로 가져왔습니다.`);
+                isConsoleRunning = false;
+            }, 1200);
+        }
+
         // Tech stack interactive showcase helper
         function showTechDetail(tech, description) {
             const titleEl = document.getElementById("techFocusTitle");
@@ -662,7 +756,7 @@
             showToast("📋 클립보드 복사 완료!", `${description}이(가) 복사되었습니다. 편하게 사용하세요.`);
         }
 
-        // Toast visual feedback component (since browser alerts are not allowed)
+        // Toast visual feedback component
         let toastTimeout;
         function showToast(title, message, type = "success") {
             const toast = document.getElementById("toastNotification");
