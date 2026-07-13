@@ -69,9 +69,9 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#welcome" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">홈</a>
                     <a href="#vision" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">백엔드 지향점</a>
-                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">나의 일상</a>
-                    <a href="#pet" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">반려동물</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">기술 스택</a>
                     <a href="#strengths" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">나의 강점</a>
+                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">나의 일상</a>
                     <a href="#contact" class="px-4 py-2 text-sm font-semibold text-white bg-brand-primary rounded-full hover:bg-brand-deep transition-all duration-300 shadow-sm hover:shadow">연락하기 👋</a>
                 </div>
 
@@ -184,11 +184,11 @@
                         <!-- Console Body -->
                         <div class="p-6 font-mono text-xs md:text-sm min-h-[220px] bg-slate-900/95 flex flex-col justify-between">
                             <div id="consoleOutput" class="space-y-2 whitespace-pre-wrap leading-relaxed">
-<!-- Default screen state -->
-<span class="text-slate-500"># Welcome to Backend Demo. Click the button below to test API pipeline.</span>
-<span class="text-slate-300">visitor_db_state: connected <span class="text-emerald-500 font-semibold">[OK]</span></span>
-<span class="text-slate-300">api_status: <span id="apiStatusText" class="text-slate-400">WAITING_FOR_REQUEST</span></span>
-<span class="text-brand-softBlue">waiting_for_trigger_event...<span class="console-cursor font-bold">_</span></span></div>
+                                <span class="text-slate-500"># Welcome to Backend Demo. Click the button below to test API pipeline.</span>
+                                <span class="text-slate-300">visitor_db_state: connected <span class="text-emerald-500 font-semibold">[OK]</span></span>
+                                <span class="text-slate-300">api_status: <span id="apiStatusText" class="text-slate-400">WAITING_FOR_REQUEST</span></span>
+                                <span class="text-brand-softBlue">waiting_for_trigger_event...<span class="console-cursor font-bold">_</span></span>
+                            </div>
                             
                             <!-- Trigger Button -->
                             <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
@@ -208,11 +208,194 @@
         </div>
     </section>
 
+    <!-- Section: Tech Stack & Engineering Capabilities -->
+    <section id="skills" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-softBlue bg-brand-softBlue/10 px-3 py-1.5 rounded-full">Skills & Tools</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-deep mt-4">단단하게 다져온 기술 스택 & 역량</h2>
+                <div class="w-12 h-1 bg-brand-primary mx-auto my-4 rounded-full"></div>
+                <p class="text-slate-600 text-sm md:text-base">단순히 도구를 사용하는 것을 넘어, 각 기술의 동작 원리와 견고한 아키텍처 설계를 지향합니다.</p>
+            </div>
+
+            <!-- Tech Stack Categories Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Category 1: Backend Core -->
+                <div class="bg-brand-light/40 border border-slate-100 rounded-2xl p-6 hover:border-brand-primary/20 transition-all duration-300 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-primary flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h3 class="font-bold text-brand-deep text-lg">Backend Core</h3>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-6">기술 명칭을 클릭하시면 활용 능력을 확인하실 수 있습니다.</p>
+                        <ul class="space-y-3">
+                            <!-- Java -->
+                            <li class="group cursor-pointer p-3 rounded-xl bg-white border border-slate-100 hover:border-brand-softBlue/30 hover:shadow-md transition-all flex justify-between items-center" 
+                                onclick="showTechDetail('Java', '객체 지향 프로그래밍(OOP)을 깊게 이해하며 다형성과 캡슐화를 녹여냅니다. JVM 구조 및 GC 원리를 고려하여 높은 메모리 효율성과 가독성을 지닌 클린 코드를 작성하고자 고민합니다.')">
+                                <span class="text-sm font-bold text-slate-700 group-hover:text-brand-softBlue transition-colors">Java</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-300 group-hover:text-brand-softBlue group-hover:translate-x-1 transition-all"></i>
+                            </li>
+                            <!-- Spring Boot -->
+                            <li class="group cursor-pointer p-3 rounded-xl bg-white border border-slate-100 hover:border-brand-softBlue/30 hover:shadow-md transition-all flex justify-between items-center" 
+                                onclick="showTechDetail('Spring Boot', 'Spring MVC 패턴 기반의 효율적인 RESTful API를 설계합니다. IoC Container, DI, AOP 개념을 이해하고 요구사항에 알맞는 비즈니스 로직을 구축합니다.')">
+                                <span class="text-sm font-bold text-slate-700 group-hover:text-brand-softBlue transition-colors">Spring Boot / Spring MVC</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-300 group-hover:text-brand-softBlue group-hover:translate-x-1 transition-all"></i>
+                            </li>
+                            <!-- JPA -->
+                            <li class="group cursor-pointer p-3 rounded-xl bg-white border border-slate-100 hover:border-brand-softBlue/30 hover:shadow-md transition-all flex justify-between items-center" 
+                                onclick="showTechDetail('Spring Data JPA', 'N+1 조회 문제와 영속성 컨텍스트 메커니즘을 꼼꼼히 인지하고 개발합니다. 지연 로딩(Lazy Loading)과 Fetch Join을 올바르게 활용하여 DB 성능을 개선합니다.')">
+                                <span class="text-sm font-bold text-slate-700 group-hover:text-brand-softBlue transition-colors">Spring Data JPA / QueryDSL</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-300 group-hover:text-brand-softBlue group-hover:translate-x-1 transition-all"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 2: Data & Storage -->
+                <div class="bg-brand-light/40 border border-slate-100 rounded-2xl p-6 hover:border-emerald-500/20 transition-all duration-300 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <h3 class="font-bold text-brand-deep text-lg">Data & Storage</h3>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-6">기술 명칭을 클릭하시면 활용 능력을 확인하실 수 있습니다.</p>
+                        <ul class="space-y-3">
+                            <!-- MySQL -->
+                            <li class="group cursor-pointer p-3 rounded-xl bg-white border border-slate-100 hover:border-emerald-500/30 hover:shadow-md transition-all flex justify-between items-center" 
+                                onclick="showTechDetail('MySQL', '효율적인 인덱스 설계와 서브쿼리 최적화를 학습 중입니다. 테이블 정규화 및 적절한 비정규화를 통해 대규모 트래픽 속에서도 안정적인 무결성과 조인 속도를 보장합니다.')">
+                                <span class="text-sm font-bold text-slate-700 group-hover:text-emerald-500 transition-colors">MySQL / Relational DB</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-300 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all"></i>
+                            </li>
+                            <!-- Redis -->
+                            <li class="group cursor-pointer p-3 rounded-xl bg-white border border-slate-100 hover:border-emerald-500/30 hover:shadow-md transition-all flex justify-between items-center" 
+                                onclick="showTechDetail('Redis', '인메모리 DB의 장점을 활용한 캐시 레이어 구성, 세션 분산 관리, API 요청 횟수 제약 등에 사용해 본 경험이 있습니다.')">
+                                <span class="text-sm font-bold text-slate-700 group-hover:text-emerald-500 transition-colors">Redis (Cache)</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-300 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all"></i>
+                            </li>
+                            <!-- PostgreSQL -->
+                            <li class="group cursor-pointer p-3 rounded-xl bg-white border border-slate-100 hover:border-emerald-500/30 hover:shadow-md transition-all flex justify-between items-center" 
+                                onclick="showTechDetail('PostgreSQL', '공간 데이터 및 확장성이 풍부한 RDBMS 특성을 이해하고 요구조건에 맞는 스키마 설계 및 마이그레이션 도구를 적용해 보았습니다.')">
+                                <span class="text-sm font-bold text-slate-700 group-hover:text-emerald-500 transition-colors">PostgreSQL</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-300 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 3: DevOps & Co-Work -->
+                <div class="bg-brand-light/40 border border-slate-100 rounded-2xl p-6 hover:border-purple-500/20 transition-all duration-300 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <h3 class="font-bold text-brand-deep text-lg">DevOps & Co-Work</h3>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-6">기술 명칭을 클릭하시면 활용 능력을 확인하실 수 있습니다.</p>
+                        <ul class="space-y-3">
+                            <!-- Git -->
+                            <li class="group cursor-pointer p-3 rounded-xl bg-white border border-slate-100 hover:border-purple-500/30 hover:shadow-md transition-all flex justify-between items-center" 
+                                onclick="showTechDetail('Git / GitHub', 'Git Flow 브랜칭 전략과 룰을 적극 준수하며, 팀원들과의 충돌을 예방하고 코드 품질을 높이는 꼼꼼한 Pull Request 코드 리뷰를 주도합니다.')">
+                                <span class="text-sm font-bold text-slate-700 group-hover:text-purple-500 transition-colors">Git / GitHub Flow</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-300 group-hover:text-purple-500 group-hover:translate-x-1 transition-all"></i>
+                            </li>
+                            <!-- Docker -->
+                            <li class="group cursor-pointer p-3 rounded-xl bg-white border border-slate-100 hover:border-purple-500/30 hover:shadow-md transition-all flex justify-between items-center" 
+                                onclick="showTechDetail('Docker', 'Dockerfile 작성 및 이미지 레이어 최소화, docker-compose를 활용해 로컬 개발 환경과 통합 서버 인프라를 완벽히 일치시키는 가상화 환경을 세팅합니다.')">
+                                <span class="text-sm font-bold text-slate-700 group-hover:text-purple-500 transition-colors">Docker Containers</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-300 group-hover:text-purple-500 group-hover:translate-x-1 transition-all"></i>
+                            </li>
+                            <!-- CI/CD -->
+                            <li class="group cursor-pointer p-3 rounded-xl bg-white border border-slate-100 hover:border-purple-500/30 hover:shadow-md transition-all flex justify-between items-center" 
+                                onclick="showTechDetail('CI/CD Pipelines', 'GitHub Actions 또는 Jenkins를 이용해 코드 푸시 시 자동으로 테스트와 빌드를 수행하고, 클라우드 서버 인프라에 에러 없이 배포하는 일련의 워크플로우를 설계해 봤습니다.')">
+                                <span class="text-sm font-bold text-slate-700 group-hover:text-purple-500 transition-colors">CI/CD / Automation</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-300 group-hover:text-purple-500 group-hover:translate-x-1 transition-all"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Interactive Description Notice Card -->
+            <div class="bg-brand-light rounded-2xl p-6 border border-slate-200/50 flex flex-col md:flex-row items-center justify-between gap-6 transition-all">
+                <div class="flex items-center gap-4">
+                    <div class="flex h-4 w-4 relative flex-shrink-0">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-softBlue opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-softBlue"></span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm md:text-base flex items-center gap-1" id="techFocusTitle">
+                            <i class="fa-solid fa-circle-question text-brand-softBlue"></i>
+                            <span>역량이 궁금한 기술을 리스트에서 클릭해 보세요!</span>
+                        </h4>
+                        <p class="text-slate-500 text-xs md:text-sm mt-1 leading-relaxed" id="techFocusDesc">상위 기술 스택 항목 중 하나를 클릭하시면 제가 해당 기술을 프로젝트에서 어떻게 활용하며 백엔드 성능 최적화를 일구어내는지 구체적인 역량이 이곳에 나타납니다.</p>
+                    </div>
+                </div>
+                <div class="text-[10px] md:text-xs bg-white text-slate-500 border border-slate-200 rounded-lg px-3 py-1.5 flex items-center justify-center gap-1.5 font-bold shadow-sm whitespace-nowrap self-start md:self-center">
+                    <i class="fa-solid fa-fingerprint text-brand-softBlue animate-pulse"></i>
+                    <span>클릭 인터랙티브 지원</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: My Strengths -->
+    <section id="strengths" class="py-24 bg-brand-light border-y border-slate-200/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-softBlue bg-brand-softBlue/10 px-3 py-1.5 rounded-full">My Strengths</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-deep mt-4">러닝메이트로서 저의 강점 3가지</h2>
+                <div class="w-12 h-1 bg-brand-primary mx-auto my-4 rounded-full"></div>
+                <p class="text-slate-600 text-sm md:text-base">어려운 기술을 빠르게 배우는 것만큼이나 중요한, 함께 일하고 싶어지는 사람의 가치들을 생각합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Strength Card 1 -->
+                <div class="p-8 rounded-2xl border border-slate-100 bg-white flex flex-col justify-between hover:border-brand-softBlue/30 hover:shadow-xl transition-all duration-300">
+                    <div>
+                        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6">01</div>
+                        <h3 class="text-lg font-bold text-brand-deep mb-3">포기하지 않는 든든한 끈기</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            에러 코드가 아무리 끝없이 이어져도, 결국에는 원인을 디버깅하고야 마는 깊은 끈기를 가졌습니다. 동료들의 밤샘 코딩에서도 마지막까지 곁을 지키며 활력을 채워드릴 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Strength Card 2 -->
+                <div class="p-8 rounded-2xl border border-slate-100 bg-white flex flex-col justify-between hover:border-brand-softBlue/30 hover:shadow-xl transition-all duration-300">
+                    <div>
+                        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6">02</div>
+                        <h3 class="text-lg font-bold text-brand-deep mb-3">경계를 허무는 열린 소통</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            팀에 소외되는 의견이 없도록 조율하며, 갈등 상황 속에서도 따뜻한 미소와 유연한 언어로 팀 분위기를 부드럽게 이끌어 나갑니다. 함께 토론하는 것을 소중히 생각합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Strength Card 3 -->
+                <div class="p-8 rounded-2xl border border-slate-100 bg-white flex flex-col justify-between hover:border-brand-softBlue/30 hover:shadow-xl transition-all duration-300">
+                    <div>
+                        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6">03</div>
+                        <h3 class="text-lg font-bold text-brand-deep mb-3">배움을 아낌없이 공유하는 자세</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            직접 새로 습득한 지식이나 유용했던 개발 팁을 나만 아는 노하우로 묻어두지 않고, 블로그나 위키에 꼼꼼히 정리하여 다른 동료들이 막히지 않도록 선한 영향력을 펼칩니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Section: About Me (Hobbies & Daily Life) -->
     <section id="about" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-deep">하루의 반은 코드와, 반은 취미와 함께!</h2>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-softBlue bg-brand-softBlue/10 px-3 py-1.5 rounded-full">Hobbies & Daily Life</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-deep mt-4">하루의 반은 코드와, 반은 취미와 함께!</h2>
                 <div class="w-12 h-1 bg-brand-primary mx-auto my-4 rounded-full"></div>
                 <p class="text-slate-600 text-sm md:text-base">제가 좋아하는 소중한 일상 속 즐거움들을 공유합니다. 공통 관심사가 있으시다면 언제든 반갑게 아는 척해 주세요!</p>
             </div>
@@ -221,27 +404,27 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                 <!-- Baseball Hobby Card -->
-                <div class="bg-brand-light rounded-2xl p-6 border border-slate-100 card-hover flex flex-col justify-between">
+                <div class="bg-brand-light/40 rounded-2xl p-6 border border-slate-100/80 card-hover flex flex-col justify-between shadow-sm">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-6">
                             <i class="fa-solid fa-baseball-bat-ball"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-brand-deep mb-3">최강삼성! "야구"</h3>
+                        <h3 class="text-lg font-bold text-brand-deep mb-3">언제나 가슴 설레는 "야구"</h3>
                         <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            푸른 피가 흐르는 열렬한 삼성 라이온즈 팬입니다! 매 경기 응원하며, 기회가 되면 라이온즈 파크 직관을 다니는 것이 인생의 가장 큰 행복이자 힐링입니다.
+                            경기장에서 울려 퍼지는 우렁찬 함성 소리와 매 순간 손에 땀을 쥐게 하는 승부를 직관하는 것을 좋아합니다. 야구장을 가거나 경기를 챙겨보며 일상의 피로를 기분 좋게 해소하곤 합니다.
                         </p>
                     </div>
                     <!-- Interaction: Click to cheer -->
-                    <div class="border-t border-slate-200 pt-4 mt-4 flex items-center justify-between">
-                        <span class="text-xs text-slate-500">라이온즈 응원수</span>
-                        <button onclick="cheerBaseball()" class="px-3 py-1.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-all flex items-center gap-2 shadow-sm">
-                            <i class="fa-solid fa-fire"></i> <span id="baseballCheerCount">12</span>번 외침
+                    <div class="border-t border-slate-100/60 pt-4 mt-4 flex items-center justify-between">
+                        <span class="text-xs text-slate-500">누적 응원 클릭</span>
+                        <button onclick="cheerBaseball()" class="px-3 py-1.5 rounded-full bg-brand-primary hover:bg-brand-softBlue text-white text-xs font-bold transition-all flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-fire animate-pulse"></i> <span id="baseballCheerCount">12</span>번 응원
                         </button>
                     </div>
                 </div>
 
                 <!-- Game Hobby Card -->
-                <div class="bg-brand-light rounded-2xl p-6 border border-slate-100 card-hover flex flex-col justify-between">
+                <div class="bg-brand-light/40 rounded-2xl p-6 border border-slate-100/80 card-hover flex flex-col justify-between shadow-sm">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl mb-6">
                             <i class="fa-solid fa-gamepad"></i>
@@ -252,7 +435,7 @@
                         </p>
                     </div>
                     <!-- Interaction: Dynamic game request -->
-                    <div class="border-t border-slate-200 pt-4 mt-4 flex items-center justify-between">
+                    <div class="border-t border-slate-100/60 pt-4 mt-4 flex items-center justify-between">
                         <span class="text-xs text-slate-500">듀오/파티 참여 의향</span>
                         <button onclick="requestDuo()" class="px-3 py-1.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold transition-all flex items-center gap-1 shadow-sm">
                             <span>🎮 같이 해요!</span>
@@ -261,7 +444,7 @@
                 </div>
 
                 <!-- Photography Hobby Card -->
-                <div class="bg-brand-light rounded-2xl p-6 border border-slate-100 card-hover flex flex-col justify-between">
+                <div class="bg-brand-light/40 rounded-2xl p-6 border border-slate-100/80 card-hover flex flex-col justify-between shadow-sm">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-6">
                             <i class="fa-solid fa-camera"></i>
@@ -272,7 +455,7 @@
                         </p>
                     </div>
                     <!-- Interaction: Open Gallery Slide modal/trigger -->
-                    <div class="border-t border-slate-200 pt-4 mt-4 flex items-center justify-between">
+                    <div class="border-t border-slate-100/60 pt-4 mt-4 flex items-center justify-between">
                         <span class="text-xs text-slate-500">인생 스냅샷 갤러리</span>
                         <button onclick="toggleGallery()" class="px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all flex items-center gap-1 shadow-sm">
                             <span>📷 갤러리 보기</span>
@@ -312,116 +495,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Section: Special Guest (Pet Introduction) -->
-    <section id="pet" class="py-24 bg-brand-light relative">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-xl flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
-                <!-- Background decorative bubble -->
-                <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-softBlue/5 rounded-full blur-2xl"></div>
-                
-                <!-- Real Pet Photo Frame -->
-                <div class="w-full md:w-1/2 flex flex-col items-center justify-center text-center">
-                    <div id="petPhotoContainer" class="relative w-60 h-60 bg-white border-8 border-white rounded-2xl flex items-center justify-center overflow-hidden shadow-lg group cursor-pointer transform hover:scale-105 hover:rotate-1 transition-all duration-300">
-                        
-                        <!-- 💡 [꿀팁] 실제 반려동물 사진 파일이 생기면 아래 src 속성의 Unsplash 링크를 파일 경로로 변경해 주세요! -->
-                        <img id="petImg" src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=600&q=80" alt="반려동물 단비 실물 사진" class="w-full h-full object-cover transition-transform duration-500" onerror="this.src='https://placehold.co/600x600/1E3E62/ffffff?text=My+Cute+Danbi'">
-                        
-                        <!-- Mini Heart Bubble triggered by interaction -->
-                        <div id="heartBubble" class="absolute top-4 right-4 scale-0 opacity-0 transition-all duration-300 transform pointer-events-none text-red-500 text-2xl">
-                            <i class="fa-solid fa-heart animate-bounce"></i>
-                        </div>
-
-                        <!-- Cute Polaroid-style Label Overlay -->
-                        <div class="absolute bottom-3 right-3 bg-brand-primary/95 text-white px-2.5 py-1 rounded-lg text-[10px] font-bold tracking-wider shadow-sm">
-                            단비 📸
-                        </div>
-                    </div>
-                    
-                    <p class="text-xs text-slate-400 mt-4"><i class="fa-solid fa-heart text-red-400 animate-pulse"></i> 사진을 콕 클릭해서 예뻐해 주세요!</p>
-                </div>
-
-                <!-- Text Description & Profile Section -->
-                <div class="w-full md:w-1/2 flex flex-col justify-center">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-xs font-bold text-amber-800 w-fit mb-4">
-                        <span>🐾 Special Guest</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-brand-deep mb-4">우리 집 막내, "단비"</h3>
-                    <p class="text-slate-600 text-sm md:text-base leading-relaxed mb-6">
-                        퇴근(하교)하는 발소리만 들려도 문앞에서 반갑게 마중 나와 꼬리를 치는 애교 만점 반려견입니다. 새하얀 털이 매력적인 재패니즈 스피츠 여자아이에요. 개발하다가 코드가 꼬여서 답답할 때, 단비의 맑은 눈망울과 솜사탕처럼 폭신한 털을 안고 나면 쌓였던 스트레스가 눈 녹듯 사라지며 막혔던 로직이 신기하게 풀리곤 합니다.
-                    </p>
-                    
-                    <!-- Dog Profile Info -->
-                    <div class="grid grid-cols-2 gap-4 bg-brand-light p-4 rounded-2xl border border-slate-100">
-                        <div>
-                            <span class="block text-xs text-slate-400">매력 포인트</span>
-                            <span class="text-sm font-semibold text-brand-deep">폭신폭신한 새하얀 털</span>
-                        </div>
-                        <div>
-                            <span class="block text-xs text-slate-400">나이 (성별)</span>
-                            <span class="text-sm font-semibold text-brand-deep">6살 (여아)</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Dynamic Interative Speech Bubble -->
-                    <div class="mt-6 flex gap-3 items-center">
-                        <div class="bg-brand-primary text-white text-xs px-4 py-2 rounded-xl rounded-tl-none relative shadow-sm max-w-xs">
-                            <p id="petTalk">단비: "언니/오빠, 오늘 하루도 싸피 화이팅이개! 멍!"</p>
-                        </div>
-                        <button onclick="feedTreat()" class="p-2 bg-amber-100 hover:bg-amber-200 text-amber-700 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-colors">
-                            <span>🦴 간식 주기</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section: My Strengths -->
-    <section id="strengths" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-deep">러닝메이트로서 저의 강점 3가지</h2>
-                <div class="w-12 h-1 bg-brand-primary mx-auto my-4 rounded-full"></div>
-                <p class="text-slate-600 text-sm md:text-base">어려운 기술을 빠르게 배우는 것만큼이나 중요한, 함께 일하고 싶어지는 사람의 가치들을 생각합니다.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Strength Card 1 -->
-                <div class="p-8 rounded-2xl border border-slate-100 bg-brand-light/50 flex flex-col justify-between hover:border-brand-softBlue/30 transition-all duration-300">
-                    <div>
-                        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6">01</div>
-                        <h3 class="text-lg font-bold text-brand-deep mb-3">포기하지 않는 든든한 끈기</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                            에러 코드가 아무리 끝없이 이어져도, 결국에는 원인을 디버깅하고야 마는 깊은 끈기를 가졌습니다. 동료들의 밤샘 코딩에서도 마지막까지 곁을 지키며 활력을 채워드릴 수 있습니다.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Strength Card 2 -->
-                <div class="p-8 rounded-2xl border border-slate-100 bg-brand-light/50 flex flex-col justify-between hover:border-brand-softBlue/30 transition-all duration-300">
-                    <div>
-                        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6">02</div>
-                        <h3 class="text-lg font-bold text-brand-deep mb-3">경계를 허무는 열린 소통</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                            팀에 소외되는 의견이 없도록 조율하며, 갈등 상황 속에서도 따뜻한 미소와 유연한 언어로 팀 분위기를 부드럽게 이끌어 나갑니다. 함께 토론하는 것을 소중히 생각합니다.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Strength Card 3 -->
-                <div class="p-8 rounded-2xl border border-slate-100 bg-brand-light/50 flex flex-col justify-between hover:border-brand-softBlue/30 transition-all duration-300">
-                    <div>
-                        <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-bold mb-6">03</div>
-                        <h3 class="text-lg font-bold text-brand-deep mb-3">배움을 아낌없이 공유하는 자세</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                            직접 새로 습득한 지식이나 유용했던 개발 팁을 나만 아는 노하우로 묻어두지 않고, 블로그나 위키에 꼼꼼히 정리하여 다른 동료들이 막히지 않도록 선한 영향력을 펼칩니다.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Section: Networking & Contact -->
     <section id="contact" class="py-24 bg-gradient-to-b from-brand-light to-white relative overflow-hidden">
@@ -500,99 +573,19 @@
     <script>
         // Name state
         let visitorName = "동료";
-
-        // Gallery photo resources (Premium Unsplash fallbacks)
-        const photos = [
-            {
-                url: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
-                desc: "소중한 시간과 추억을 담아내는 카메라 라이프"
-            },
-            {
-                url: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
-                desc: "길모퉁이 골목길에서 발견한 우연하고 소소한 일상 스냅"
-            },
-            {
-                url: "https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=800&q=80",
-                desc: "노을이 내리는 한강 다리 위에서 기록한 은은한 실루엣"
+// ... existing code ... -->
+        // Tech stack interactive showcase helper
+        function showTechDetail(tech, description) {
+            const titleEl = document.getElementById("techFocusTitle");
+            const descEl = document.getElementById("techFocusDesc");
+            if (titleEl && descEl) {
+                titleEl.innerHTML = `
+                    <span class="text-brand-primary">🛠️ ${tech}</span>
+                    <span class="text-xs bg-brand-softBlue/10 text-brand-softBlue px-2 py-0.5 rounded-full font-semibold">스택 분석</span>
+                `;
+                descEl.textContent = description;
+                showToast(`ℹ️ ${tech} 역량 카드 선택`, "하단 상세 안내에서 세부 내용을 확인할 수 있습니다.", "success");
             }
-        ];
-        let currentPhotoIndex = 0;
-
-        // Custom Pet speech texts to toggle randomly
-        const petQuotes = [
-            "단비: '언니/오빠, 오늘 하루도 싸피 화이팅이개! 멍!'",
-            "단비: '킁킁... 주인님 손가락에서 코딩 냄새가 난다개!'",
-            "단비: '내가 세상에서 제일 하얗고 귀엽다개!🐾'",
-            "단비: '단비 심심하개! 산책 데려가 달라개!🐾'",
-            "단비: '코딩하다 졸릴 땐 단비 솜사탕 볼을 만지개!🐶'"
-        ];
-
-        // Core dynamic visitor name update logic
-        function updateVisitorName(value) {
-            const trimmedValue = value.trim();
-            visitorName = trimmedValue ? trimmedValue : "동료";
-            
-            // Apply customized text values
-            const welcomeTarget = document.getElementById("welcomeName");
-            if (welcomeTarget) {
-                welcomeTarget.textContent = `${visitorName}님`;
-            }
-            
-            const visitorNameElements = document.querySelectorAll(".visitor-name");
-            visitorNameElements.forEach(el => {
-                el.textContent = visitorName;
-            });
-
-            // Update form welcome value if empty
-            const formNameField = document.getElementById("formName");
-            if (formNameField && !formNameField.value.trim()) {
-                formNameField.placeholder = `${visitorName}님의 이름`;
-            }
-        }
-
-        // Interactive Backend Console Demo
-        let isConsoleRunning = false;
-        function triggerBackendServer() {
-            if (isConsoleRunning) return;
-            isConsoleRunning = true;
-
-            const consoleOutput = document.getElementById("consoleOutput");
-            const indicator = document.getElementById("consoleIndicator");
-            const statusLabel = document.getElementById("consoleStatusLabel");
-            const apiStatusText = document.getElementById("apiStatusText");
-
-            if (!consoleOutput || !indicator || !statusLabel) return;
-
-            // Change to active status
-            indicator.className = "w-2.5 h-2.5 rounded-full bg-blue-500 animate-ping";
-            statusLabel.textContent = "Processing GET Request...";
-
-            consoleOutput.innerHTML = `
-<span class="text-blue-400">&gt; GET /api/v1/welcome-mate?visitor=${encodeURIComponent(visitorName)}</span>
-<span class="text-slate-500">Connecting to PostgreSQL database... [SUCCESS]</span>
-<span class="text-slate-500">Parsing response data payload...</span>
-<span class="text-brand-softBlue">waiting_for_response...</span>`;
-
-            setTimeout(() => {
-                // Success Response JSON mock
-                consoleOutput.innerHTML = `
-<span class="text-blue-400">&gt; GET /api/v1/welcome-mate?visitor=${encodeURIComponent(visitorName)}</span>
-<span class="text-emerald-400 font-bold">HTTP/1.1 200 OK (24ms)</span>
-<span class="text-slate-300">{
-  "status": "success",
-  "message": "환영합니다, ${visitorName}님!",
-  "role": "Backend Developer",
-  "tech_stack": ["Java", "Spring Boot", "MySQL", "Redis"],
-  "motto": "안정적인 데이터 처리와 신뢰성 있는 서버를 지향합니다."
-}</span>
-<span class="text-emerald-500">Pipeline Finished! ✅</span>`;
-
-                indicator.className = "w-2.5 h-2.5 rounded-full bg-emerald-500";
-                statusLabel.textContent = "Pipeline Active";
-                isConsoleRunning = false;
-
-                showToast("⚡ API 요청 성공 (200 OK)", "서버 터미널에서 JSON 원본 데이터를 확인해 보세요!");
-            }, 1200);
         }
 
         // Baseball cheering feature
@@ -603,7 +596,7 @@
             if (counter) {
                 counter.textContent = baseballCheers;
             }
-            showToast("📣 최강삼성 화이팅!", "사자들의 시원한 승리를 함께 기원합니다!");
+            showToast("📣 야구 응원 완료!", "박진감 넘치는 승부와 열정적인 에너지를 함께 응원합니다!");
         }
 
         // Duo request mock logic
@@ -653,41 +646,6 @@
         function nextPhoto() {
             currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
             updateGalleryView();
-        }
-
-        // Pet photo click interaction
-        const petPhotoContainer = document.getElementById("petPhotoContainer");
-        if (petPhotoContainer) {
-            petPhotoContainer.addEventListener("click", () => {
-                // Heart pops out
-                const heart = document.getElementById("heartBubble");
-                if (heart) {
-                    heart.classList.remove("scale-0", "opacity-0", "-translate-y-4");
-                    // Force reflow
-                    void heart.offsetWidth;
-                    heart.classList.add("scale-100", "opacity-100", "-translate-y-4");
-                    setTimeout(() => {
-                        heart.classList.add("scale-0", "opacity-0");
-                        heart.classList.remove("scale-100", "opacity-100", "-translate-y-4");
-                    }, 1000);
-                }
-
-                // Random quote bubble update
-                const talk = document.getElementById("petTalk");
-                if (talk) {
-                    const randomQuote = petQuotes[Math.floor(Math.random() * petQuotes.length)];
-                    talk.textContent = randomQuote;
-                }
-            });
-        }
-
-        function feedTreat() {
-            // Heart animations or fun feedback
-            const talk = document.getElementById("petTalk");
-            if (talk) {
-                talk.textContent = "단비: '냠냠! 역시 언니/오빠가 주는 간식이 최고개!🐶✨'";
-            }
-            showToast("🦴 간식 주기 완료!", "단비가 꼬리를 힘차게 흔들며 행복해합니다.");
         }
 
         // Copy text helper
